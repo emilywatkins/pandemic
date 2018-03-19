@@ -1,0 +1,13 @@
+.jumbotron {
+  margin-top: 25px;
+  text-align: center;
+  font-family: 'Orbitron', sans-serif;
+}
+
+html, body {
+  background-image: url('https://media.giphy.com/media/bqBGw8ukQdhEQ/source.gif');
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+}

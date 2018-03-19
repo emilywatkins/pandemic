@@ -22,8 +22,8 @@ export class City {
     }
   }
 
-  treat() {
-    this.infectionLevel = this.infectionLevel - 5;
+  treat(amount) {
+    this.infectionLevel -= amount;
   }
 
 }

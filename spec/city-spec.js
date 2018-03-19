@@ -31,7 +31,7 @@ describe('City', function() {
 
   it('should have a decreased infection level if treated', function() {
     jasmine.clock().tick(20001);
-    portland.treat();
+    portland.treat(5);
     expect(portland.infectionLevel).toEqual(15);
   });
 
