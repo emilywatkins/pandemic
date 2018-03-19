@@ -26,8 +26,18 @@ describe('City', function() {
   it('should return true when infectionlevel equals population', function() {
     jasmine.clock().tick(50001);
     var infected = portland.maxInfection();
-    console.log(infected, portland.infectionLevel);
     expect(infected).toEqual(true);
+  });
+
+  it('should have a decreased infection level if treated', function() {
+    jasmine.clock().tick(20001);
+    portland.treat();
+    expect(portland.infectionLevel).toEqual(15);
+  });
+
+  it('should stop incrementing infection level if infection level reaches population', function() {
+    jasmine.clock().tick(51001);
+    expect(portland.infectionLevel).toEqual(50);
   });
 
 });

@@ -8,7 +8,9 @@ export class City {
 
   setInfection() {
     setInterval( () => {
-      this.infectionLevel++;
+      if (this.infectionLevel < this.population) {
+        this.infectionLevel++;
+      }
     }, 1000);
   }
 
@@ -20,6 +22,8 @@ export class City {
     }
   }
 
-  //dead.
+  treat() {
+    this.infectionLevel = this.infectionLevel - 5;
+  }
 
 }
