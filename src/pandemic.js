@@ -1,6 +1,6 @@
 import { City } from './city.js';
 export let pandemic = {
-  nyc: new City("New York City", 8500000),
+  nyc: new City("New York City", 50),
   lax: new City("Los Angeles", 4000000),
   chi: new City("Chicago", 2700000),
   sea: new City("Seattle", 700000),
@@ -9,19 +9,26 @@ export let pandemic = {
   setInfection: function(city) {
     let thisCity = city;
     setInterval( () => {
-      console.log("NAME", thisCity);
-      console.log("INFECTION", thisCity.infectionLevel);
-      console.log("POPULATION", thisCity.population);
       if (thisCity.infectionLevel < thisCity.population) {
         thisCity.infectionLevel++;
       }
     }, 1000);
   },
   maxInfection: function(city) {
-    if (city.infectionLevel >= city.population) {
+    let thisCity = city;
+    if (thisCity.infectionLevel >= thisCity.population) {
       return true;
     } else {
       return false;
     }
-  }
+  },
+  treat2: function(amount) {
+    let thisAmount = amount;
+    return function(city) {
+      let thisCity = city;
+      thisCity.infectionLevel -= amount;
+      return thisCity.infectionLevel;
+    }
+  },
 };
+pandemic.treatment = pandemic.treat2(5);
