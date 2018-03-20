@@ -1,8 +1,8 @@
 export class City {
 
-  constructor(name) {
+  constructor(name, population) {
     this.name = name;
-    this.population = 50;
+    this.population = population;
     this.infectionLevel = 0;
   }
 

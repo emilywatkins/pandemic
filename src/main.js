@@ -29,17 +29,17 @@ $(document).ready(function() {
 
   $('#giphy-btn').click(function() {
     $.ajax({
-      url: `http://api.giphy.com/v1/gifs/search?q=galaxy&api_key=ZUoHIYuPaDgbDXM69WWSG48h0OVYrCR1&limit=5`,
+      url: `http://api.giphy.com/v1/gifs/search?q=los_angeles&api_key=ZUoHIYuPaDgbDXM69WWSG48h0OVYrCR1&limit=5`,
       type: 'GET',
       data: {
         format: 'json'
       },
       success: function(response) {
-        var reply = response.data[2].images.original.url;
+        var reply = response.data[1].images.original.url;
         console.log("Here is your reply", reply);
-        document.getElementById("gif").innerHTML = '<img class="card-img-top"  src="' + reply + '">';
+        // document.getElementById("gif").innerHTML = '<img class="card-img-top"  src="' + reply + '">';
 
-        // $('.giphy-span2').append('<img class="card-img-top"  src="' + reply + '">');
+        $('#giphy-span2').html('<img class="card-img-top"  src="' + reply + '">');
       }
     });
   });

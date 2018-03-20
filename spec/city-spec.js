@@ -1,7 +1,7 @@
 import { City } from './../src/city.js';
 
 describe('City', function() {
-  let portland = new City("Portland");
+  let portland = new City("Portland", 50);
 
   beforeEach(function() {
     portland.infectionLevel = 0;
