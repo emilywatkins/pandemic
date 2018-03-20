@@ -8,9 +8,10 @@ $(document).ready(function() {
 // API JQUERY
   $('#weatherLocation').click(function() {
     let city = $('#location').val();
+    const key = process.env.WEATHER_API_KEY;
     $('#location').val("");
     $.ajax({
-      url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=dda387c46c07145b7f41c73512df5121`,
+      url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`,
       type: 'GET',
       data: {
         format: 'json'
@@ -28,8 +29,10 @@ $(document).ready(function() {
   // GIPHY
 
   $('#giphy-btn').click(function() {
+    const key = process.env.GIPHY_API_KEY;
+
     $.ajax({
-      url: `http://api.giphy.com/v1/gifs/search?q=los_angeles&api_key=ZUoHIYuPaDgbDXM69WWSG48h0OVYrCR1&limit=5`,
+      url: `http://api.giphy.com/v1/gifs/search?q=los_angeles&api_key=${key}&limit=5`,
       type: 'GET',
       data: {
         format: 'json'
@@ -37,8 +40,6 @@ $(document).ready(function() {
       success: function(response) {
         var reply = response.data[1].images.original.url;
         console.log("Here is your reply", reply);
-        // document.getElementById("gif").innerHTML = '<img class="card-img-top"  src="' + reply + '">';
-
         $('#giphy-span2').html('<img class="card-img-top"  src="' + reply + '">');
       }
     });
