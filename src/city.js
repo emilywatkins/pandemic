@@ -5,6 +5,7 @@ export class City {
     this.population = population;
     this.infectionLevel = 0;
     this.percent = 0;
+    this.uninfected = true;
   }
 
 }

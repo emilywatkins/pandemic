@@ -8,6 +8,7 @@ export let pandemic = {
 
   setInfection: function(city) {
     let thisCity = city;
+    thisCity.uninfected = false;
     setInterval( () => {
       if (thisCity.infectionLevel < thisCity.population) {
         thisCity.infectionLevel++;
@@ -31,6 +32,26 @@ export let pandemic = {
       return thisCity.infectionLevel;
     }
   },
+  // spread: function(city) {
+  //   let thisCity = city;
+  //   setInterval( () => {
+  //     let uninfected = [];
+  //     for (var thisCity.uninfected in pandemic) {
+  //
+  //     }
+  //     if (thisCity.percent > 50) {
+  //
+  //     }
+  //   })
+  // }
 
 };
 pandemic.treatment = pandemic.treat2(5);
+
+// spread: function(cityA, cityB) {
+//   let cityA = cityA;
+//   let cityB = cityB;
+//   if (cityA.percent > 10) {
+//     setInfection(cityB);
+//   }
+// }

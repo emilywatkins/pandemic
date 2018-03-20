@@ -20,10 +20,20 @@ $(document).ready(function() {
   outbreak.setInfection(outbreak.lax);
   outbreak.setInfection(outbreak.chi);
 
+  let pandemicArray = [];
+  for(var propt in pandemic) {
+    pandemicArray.push(pandemic[propt]);
+  };
 
-  setInterval(function(){
-    console.log("NYC outbreak percent", outbreak.nyc.percent);
-  }, 1000)
+  let newArray = [];
+  pandemicArray.forEach(function(item) {
+    if (item.hasOwnProperty('uninfected') === true) {
+      newArray.push(item);
+    }
+  });
+
+  console.log("NEW ARRAY: ", newArray);
+  console.log("THIS IS YOUR ARRAY: ", pandemicArray);
 
   $("#nyc-pop").text(outbreak.nyc.population);
   $("#chi-pop").text(outbreak.chi.population);
