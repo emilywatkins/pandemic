@@ -1,10 +1,10 @@
 import { City } from './city.js';
 export let pandemic = {
-  nyc: new City("New York City", 50),
-  lax: new City("Los Angeles", 4000000),
-  chi: new City("Chicago", 2700000),
-  sea: new City("Seattle", 700000),
-  mia: new City("Miami", 500000),
+  nyc: new City("New York City", 800), //8000000
+  lax: new City("Los Angeles", 400), //4000000
+  chi: new City("Chicago", 300), //2700000
+  sea: new City("Seattle", 70), //700000
+  mia: new City("Miami", 50), //500000
 
   setInfection: function(city) {
     let thisCity = city;
@@ -12,6 +12,7 @@ export let pandemic = {
       if (thisCity.infectionLevel < thisCity.population) {
         thisCity.infectionLevel++;
       }
+      thisCity.percent = Math.floor((thisCity.infectionLevel / thisCity.population)*100);
     }, 1000);
   },
   maxInfection: function(city) {
@@ -30,5 +31,6 @@ export let pandemic = {
       return thisCity.infectionLevel;
     }
   },
+
 };
 pandemic.treatment = pandemic.treat2(5);

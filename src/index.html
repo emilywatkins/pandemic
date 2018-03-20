@@ -12,20 +12,26 @@
       </div>
 <!-- PANDEMIC -->
       <div class="row">
-        <div class="col-md-4">
-          <div class="card" style="width: 18rem;">
+        <!-- PANDEMIC SKULL -->
+        <div class="col-md-1">
+          <!-- temp spaceholder -->
+        </div>
+        <!-- NYC -->
+        <div class="col-md-2">
+          <div class="card" style="width: 12rem;">
             <img class="card-img-top" src="https://static1.squarespace.com/static/584f6912e3df2821594e8732/595e0d9ad1758e52802d9345/595e71b84c8b0311618716c2/1502496415127/portland-postcard.jpg?format=750w" alt="portland">
             <div class="card-body">
-              <h5 class="card-title">Portland</h5>
-              <p class="card-text">Population: <span id="pdx-pop"></span></p>
-              <p class="card-text">Infection Level: <span id="pdx-infect"></span></p>
-              <p class="card-text"><span id="pdx-alert"></span></p>
-              <a href="#" class="btn btn-primary" id="pdx-treat">TREAT</a>
+              <h5 class="card-title">New York</h5>
+              <p class="card-text">Population: <span id="nyc-pop"></span></p>
+              <p class="card-text">Persons Infected: <span id="nyc-infect"></span></p>
+              <p class="card-text"><span id="nyc-alert"></span></p>
+              <a href="#" class="btn btn-primary" id="nyc-treat">TREAT</a>
             </div>
           </div>
         </div>
-        <div class="col-md-4">
-          <div id="gif" class="card" style="width: 18rem;">
+        <!-- LAX -->
+        <div class="col-md-2">
+          <div id="gif" class="card" style="width: 12rem;">
             <img class="card-img-top"  src="">
             <span id="giphy-span1"></span>
             <div class="card-body">
@@ -34,29 +40,70 @@
               <a href="#" class="btn btn-primary" id="giphy-btn">GET GIFS</a>
             </div>
           </div>
-
         </div>
-        <div class="col-md-4">
-          <div id='myDiv'></div>
-
+        <!-- CHI -->
+        <div class="col-md-2">
+          <div class="card" style="width: 12rem;">
+            <img class="card-img-top" src="https://static1.squarespace.com/static/584f6912e3df2821594e8732/595e0d9ad1758e52802d9345/595e71b84c8b0311618716c2/1502496415127/portland-postcard.jpg?format=750w" alt="portland">
+            <div class="card-body">
+              <h5 class="card-title">Chicago</h5>
+              <p class="card-text">Population: <span id="chi-pop"></span></p>
+              <p class="card-text">Persons Infected: <span id="chi-infect"></span></p>
+              <p class="card-text"><span id="chi-alert"></span></p>
+              <a href="#" class="btn btn-primary" id="chi-treat">TREAT</a>
+            </div>
+          </div>
+        </div>
+        <!-- SEA -->
+        <div class="col-md-2">
+          <div class="card" style="width: 12rem;">
+            <img class="card-img-top" src="https://static1.squarespace.com/static/584f6912e3df2821594e8732/595e0d9ad1758e52802d9345/595e71b84c8b0311618716c2/1502496415127/portland-postcard.jpg?format=750w" alt="portland">
+            <div class="card-body">
+              <h5 class="card-title">Seattle</h5>
+              <p class="card-text">Population: <span id="pdx-pop"></span></p>
+              <p class="card-text">Persons Infected: <span id="pdx-infect"></span></p>
+              <p class="card-text"><span id="pdx-alert"></span></p>
+              <a href="#" class="btn btn-primary" id="pdx-treat">TREAT</a>
+            </div>
+          </div>
+        </div>
+        <!-- MIA -->
+        <div class="col-md-2">
+          <div class="card" style="width: 12rem;">
+            <img class="card-img-top" src="https://static1.squarespace.com/static/584f6912e3df2821594e8732/595e0d9ad1758e52802d9345/595e71b84c8b0311618716c2/1502496415127/portland-postcard.jpg?format=750w" alt="portland">
+            <div class="card-body">
+              <h5 class="card-title">Miami</h5>
+              <p class="card-text">Population: <span id="pdx-pop"></span></p>
+              <p class="card-text">Persons Infected: <span id="pdx-infect"></span></p>
+              <p class="card-text"><span id="pdx-alert"></span></p>
+              <a href="#" class="btn btn-primary" id="pdx-treat">TREAT</a>
+            </div>
+          </div>
+        </div>
+        <!-- PANDEMIC SKULL -->
+        <div class="col-md-1">
+          <!-- temp spaceholder -->
         </div>
 
       </div>
       <br>
       <hr>
-<!-- WEATHER API JQUERY-->
-    <div class="card">
-      <h1>Weather Conditions</h1>
-      <input id="location" type="text" placeholder="LOCATION">
-      <button class="btn-primary" id="weatherLocation">Get Humidity!</button>
-      <div class="errors"></div>
-      <div class="showHumidity"></div>
-      <div class="showTemp"></div>
-    </div>
-    <br>
-    <hr>
-<!-- GIPHY API -->
 
+      <div id="stats" class="card" style="width: 50rem;">
+        <div class="card-body">
+          <h5>stats: new york</h5>
+          <p>new york is <span id="nyc-percent"></span>% infected</p>
+          <h5>stats: los angeles</h5>
+          <p>los angeles is <span id="lax-percent"></span>% infected</p>
+          <h5>stats: chicago</h5>
+          <p>chicago is <span id="chi-percent"></span>% infected</p>
+          <h5>stats: miami</h5>
+          <p>miami is <span id="mia-percent"></span>% infected</p>
+          <h5>stats: seattle</h5>
+          <p>seattle is <span id="sea-percent"></span>% infected</p>
+        </div>
+
+      </div>
 
     </div>
   </body>

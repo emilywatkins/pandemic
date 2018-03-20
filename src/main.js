@@ -3,70 +3,45 @@ import $ from 'jquery';
 import 'bootstrap';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { City } from './city.js';
+import { Api } from './api.js';
+import { pandemic } from './../src/pandemic.js';
 
 $(document).ready(function() {
-// API JQUERY
-  $('#weatherLocation').click(function() {
-    let city = $('#location').val();
-    const key = process.env.WEATHER_API_KEY;
-    $('#location').val("");
-    $.ajax({
-      url: `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${key}`,
-      type: 'GET',
-      data: {
-        format: 'json'
-      },
-      success: function(response) {
-        $('.showHumidity').text(`The humidity in ${city} is ${response.main.humidity}%`);
-        $('.showTemp').text(`The temperature in Kelvins is ${response.main.temp}.`);
-      },
-      error: function() {
-        $('#errors').text("There was an error processing your request. Please try again.")
-      }
-    });
-  });
-
-  // GIPHY
-  // $('#giphy-btn').click(function() {
-  //   const key = process.env.GIPHY_API_KEY;
-  //   $.ajax({
-  //     url: `http://api.giphy.com/v1/gifs/search?q=los_angeles&api_key=${key}&limit=5`,
-  //     type: 'GET',
-  //     data: {
-  //       format: 'json'
-  //     },
-  //     success: function(response) {
-  //       var reply = response.data[1].images.original.url;
-  //       console.log("Here is your reply", reply);
-  //       $('#giphy-span2').html('<img class="card-img-top"  src="' + reply + '">');
-  //     }
-  //   });
-  // });
-
   // JQUERY PROMISE
 
+  var apiCall = new Api();
   $('#giphy-btn').click(function() {
-    const key = process.env.GIPHY_API_KEY;
-    $.get(`http://api.giphy.com/v1/gifs/search?q=los_angeles&api_key=${key}&limit=5`).then(function(response) {
-      var reply = response.data[1].images.original.url;
-      console.log("Here is your reply", reply);
-      $('#giphy-span2').html('<img class="card-img-top"  src="' + reply + '">');
-    }).fail(function(error) {
-      alert("You failed. You are a failure. You failed.")
-    });
+    apiCall.getData();
   });
 
   // PANDEMIC
-  let portland;
-  portland = new City("portland");
-  portland.setInfection();
-
-  $("#pdx-pop").text(portland.population);
-
-  setInterval(function(){ $('#pdx-infect').text(portland.infectionLevel); }, 1000);
+  let outbreak = pandemic;
+  outbreak.setInfection(outbreak.nyc);
+  outbreak.setInfection(outbreak.lax);
+  outbreak.setInfection(outbreak.chi);
 
 
-  $('#pdx-treat').click(function(){ //do this after lunch
-    portland.treat(5);
+  setInterval(function(){
+    console.log("NYC outbreak percent", outbreak.nyc.percent);
+  }, 1000)
+
+  $("#nyc-pop").text(outbreak.nyc.population);
+  $("#chi-pop").text(outbreak.chi.population);
+
+  setInterval(function(){
+    $('#nyc-infect').text(outbreak.nyc.infectionLevel);
+    $('#chi-infect').text(outbreak.chi.infectionLevel);
+  }, 1000);
+
+  setInterval(function(){
+    $('#nyc-percent').text(outbreak.nyc.percent);
+    $('#chi-percent').text(outbreak.chi.percent);
+  }, 3000);
+
+  $('#nyc-treat').click(function(){
+    outbreak.treatment(outbreak.nyc);
+  });
+  $('#chi-treat').click(function(){
+    outbreak.treatment(outbreak.chi);
   });
 })
